@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener - Rút gọn link miễn phí</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-link"></i>
+                <h1>URL Shortener</h1>
+            </div>
+            <p class="subtitle">Rút gọn link dài thành link ngắn dễ chia sẻ</p>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Form rút gọn link -->
+            <div class="shortener-card">
+                <form id="shortenForm">
+                    <div class="input-group">
+                        <input 
+                            type="url" 
+                            id="longUrl" 
+                            placeholder="https://example.com/duong-dan-rat-dai-can-rut-gon"
+                            required
+                        >
+                        <button type="submit" id="shortenBtn">
+                            <i class="fas fa-cut"></i>
+                            <span>Rút gọn</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Loading indicator -->
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <span>Đang xử lý...</span>
+                </div>
+
+                <!-- Error message -->
+                <div id="error" class="error-message hidden"></div>
+
+                <!-- Kết quả -->
+                <div id="result" class="result hidden">
+                    <div class="result-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Link đã được rút gọn!</h3>
+                    </div>
+                    
+                    <div class="url-display">
+                        <div class="long-url">
+                            <span class="label">URL gốc:</span>
+                            <p id="originalUrl"></p>
+                        </div>
+                        
+                        <div class="short-url">
+                            <span class="label">URL rút gọn:</span>
+                            <div class="short-url-box">
+                                <a href="#" id="shortUrl" target="_blank"></a>
+                                <button id="copyBtn" class="copy-btn" title="Copy link">
+                                    <i class="fas fa-copy"></i>
+                                    <span class="tooltip">Copy</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="newLinkBtn" class="new-link-btn">
+                            <i class="fas fa-plus"></i>
+                            Tạo link mới
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Siêu tốc</h3>
+                    <p>Tạo link ngắn trong 1 giây</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>An toàn</h3>
+                    <p>Kiểm tra URL hợp lệ</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-infinity"></i>
+                    <h3>Không giới hạn</h3>
+                    <p>Tạo không giới hạn link</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2024 URL Shortener. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification hidden">
+        <span id="notificationMessage"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
